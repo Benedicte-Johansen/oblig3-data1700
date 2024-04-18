@@ -1,5 +1,6 @@
 package com.example.oblig3data1700;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,17 +12,17 @@ import java.util.List;
 public class TicketController {
     private final List<Ticket> tickets = new ArrayList<>();
 
-    @GetMapping("getTickets")
+    @GetMapping("/getTickets")
     public List<Ticket> allTickets(){
         return tickets;
     }
 
-    @PostMapping("addTicket")
+    @PostMapping("/addTicket")
     public void addTicket (Ticket inTicket){
         tickets.add(inTicket);
     }
 
-    @GetMapping("deleteTickets")
+    @DeleteMapping("/deleteTickets")
     public void deleteAllTickets(){
         tickets.clear();
     }
