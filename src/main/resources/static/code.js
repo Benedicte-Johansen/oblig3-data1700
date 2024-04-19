@@ -7,8 +7,6 @@ const movie = $("chooseMovie").val();
 
 let ticketArray = [];
 function addTicketsToArray(){
-
-
     /*if (nmbrTickets.length === 0 || firstname.length === 0 || surname.length===0 || email.length === 0
         || phonenmbr.length === 0 || movie.length === 0){
         document.getElementById("ticketArray").innerHTML += "";
@@ -26,22 +24,20 @@ function addTicketsToArray(){
         };
         ticketArray.push(ticketPurchase);
 
-        $.get("http://localhost:8080/addTicket", function (data){
-            console.log(data);
-            let ut = "<table><tr><th>Navn</th>" +
-                "<th>Telefonnummer</th><th>Epost</th>" +
-                "<th>Antall Billetter</th><th>Til Film</th></tr>";
-            /*for (let i of ticketArray) {
-                ut += "<tr><td>" + i.firstnameValue + " " + i.surnameValue + "</td><td>" + i.phonenmbrValue + "</td><td>" +
-                    i.emailValue + "</td><td>" + i.nmbrTicketsValue + "</td><td>" + i.movie + "</td></tr>";
-            }*/
-            data.forEach(function (ticket){
+        $.get("http://localhost:8080/addTicket", function (ticket){
+            console.log(ticket);
+            let ut = "<table><tr><th>Name:</th>" +
+                "<th>Phonenumber:</th><th>Email:</th>" +
+                "<th>Number of tickets:</th><th>For movie:</th></tr>";
+
+            ticket.forEach(function (ticket){
                 ut += "<tr><td>" + ticket.firstnameValue + " " + ticket.surnameValue + "</td><td>" +
                     ticket.phonenmbrValue + "</td><td>" + ticket.emailValue + "</td><td>" + ticket.nmbrTicketsValue
                     + "</td><td>" + ticket.movie + "</td></tr>";
+                ut+= "</table>"
+                $("#ticketArray").innerHTML = ut;
+                console.log(ut)
             })
-            ut+= "</table>"
-            $("#ticketArray").innerHTML = ut;
         });
     //}
 }
