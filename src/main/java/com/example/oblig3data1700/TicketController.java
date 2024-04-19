@@ -19,7 +19,7 @@ public class TicketController {
 
     @Autowired
     private TicketRepository rep;
-    //private final List<Ticket> tickets = new ArrayList<>();
+    public final List<Ticket> tickets = new ArrayList<>();
     private Logger logger = LoggerFactory.getLogger(TicketController.class);
 
     @GetMapping("/getTickets")
@@ -31,16 +31,15 @@ public class TicketController {
         return allTickets;
     }
 
+    @PostMapping("/debug")
+    public void debug(){
+        
+        System.out.println("TRIGGER");
+    }
+
     @PostMapping("/addTicket")
-    public void addTicket (Ticket inTicket, HttpServletResponse response) throws IOException {
-        if (validateTicket(inTicket)){
-            if (!rep.saveTicket(inTicket)){
-                response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Error in database - try again later");
-            }
-        }
-        else {
-            response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value(),"Validation error - try again later");
-        }
+    public void saveTicket(Ticket inTicket){
+        tickets.add(inTicket);
     }
 
     @DeleteMapping("/deleteTickets")
@@ -51,6 +50,7 @@ public class TicketController {
     }
 
     private boolean validateTicket(Ticket ticket){
+        if(ticket.getId() == null) return false;
         String regexName = "[a-zA-ZæøåÆØÅ. \\-]{2,20}";
         String regexEmail = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}";
         String regexPhonenmbr = "^(0047|\\+47|47)?[2-9]\\d{7}$";
