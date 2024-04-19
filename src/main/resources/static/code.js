@@ -5,8 +5,6 @@ const email = $("email").val();
 const phonenmbr = $("phonenmbr").val();
 const movie = $("chooseMovie").val();
 
-let form = $("ticketOrdering");
-
 const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const phoneRegex = /^(0047|\+47|47)?[2-9]\d{7}$/;
 

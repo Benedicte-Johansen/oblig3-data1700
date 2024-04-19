@@ -1,3 +1,10 @@
+let form = $("ticketOrdering");
+const nmbrTickets = $("nmbrTickets").val();
+const firstname = $("firstName").val();
+const surname = $("surname").val();
+const email = $("email").val();
+const phonenmbr = $("phonenmbr").val();
+
 form.addEventListener("submit", e => {
     e.preventDefault();
 
