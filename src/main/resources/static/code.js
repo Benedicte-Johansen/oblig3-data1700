@@ -5,15 +5,9 @@ const email = $("email").val();
 const phonenmbr = $("phonenmbr").val();
 const movie = $("chooseMovie").val();
 
-const emailRegex = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/;
-const phoneRegex = /^(0047|\+47|47)?[2-9]\d{7}$/;
-
-
 let ticketArray = [];
 function addTicketsToArray(){
-    let ut = "<table><tr><th>Navn</th>" +
-        "<th>Telefonnummer</th><th>Epost</th>" +
-        "<th>Antall Billetter</th><th>Til Film</th></tr>";
+
 
     /*if (nmbrTickets.length === 0 || firstname.length === 0 || surname.length===0 || email.length === 0
         || phonenmbr.length === 0 || movie.length === 0){
@@ -32,20 +26,28 @@ function addTicketsToArray(){
         };
         ticketArray.push(ticketPurchase);
 
-        $.get("/addTicket", function (data){
-            for (let i of ticketArray) {
-                ut += "<tr>";
-                ut += "<td>" + i.firstnameValue + " " + i.surnameValue + "</td><td>" + i.phonenmbrValue + "</td><td>" +
-                    i.emailValue + "</td><td>" + i.nmbrTicketsValue + "</td><td>" + i.movie + "</td>";
-                ut += "</tr>"
-            }
-            document.getElementById("ticketArray").innerHTML = ut;
+        $.get("http://localhost:8080/addTicket", function (data){
+            console.log(data);
+            let ut = "<table><tr><th>Navn</th>" +
+                "<th>Telefonnummer</th><th>Epost</th>" +
+                "<th>Antall Billetter</th><th>Til Film</th></tr>";
+            /*for (let i of ticketArray) {
+                ut += "<tr><td>" + i.firstnameValue + " " + i.surnameValue + "</td><td>" + i.phonenmbrValue + "</td><td>" +
+                    i.emailValue + "</td><td>" + i.nmbrTicketsValue + "</td><td>" + i.movie + "</td></tr>";
+            }*/
+            data.forEach(function (ticket){
+                ut += "<tr><td>" + ticket.firstnameValue + " " + ticket.surnameValue + "</td><td>" +
+                    ticket.phonenmbrValue + "</td><td>" + ticket.emailValue + "</td><td>" + ticket.nmbrTicketsValue
+                    + "</td><td>" + ticket.movie + "</td></tr>";
+            })
+            ut+= "</table>"
+            $("#ticketArray").innerHTML = ut;
         });
     //}
 }
 
 function deleteTickets() {
-    $.delete("/deleteTickets", function (){
+    $.delete("http://localhost:8080/deleteTickets", function (){
         $("ticketArray").innerText = "";
         ticketArray.length = 0;
     })

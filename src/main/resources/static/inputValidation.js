@@ -61,7 +61,7 @@ const validateInputs = () => {
 
 
 function validateNmbrTickets (nmbrTickets) {
-    if (nmbrTickets.length === 0) {
+    if (nmbrTickets === "") {
         $("#wrongNmbrTickets").html("Please enter the number of tickets you would like to order.");
         return false;
     } else if (isNaN(nmbrTickets)){
@@ -78,7 +78,7 @@ function validateFirstName(firstName){
     if (!ok){
         $("#wrongFirstName").html("The name has to include between 2 and 20 letters");
         return false;
-    } else if (firstName.length === 0){
+    } else if (firstName === ""){
       $("#wrongFirstName").html("First name is required");
     } else {
         $("#wrongFirstName").html("");
@@ -92,7 +92,7 @@ function validateSurname(surname) {
     if (!ok){
         $("#wrongSurname").html("The name has to include between 2 and 20 letters");
         return false;
-    } else if (surname.length === 0) {
+    } else if (surname === "") {
         $("#wrongSurname").html("Surname is required");
     } else {
         $("#wrongSurname").html("");
@@ -105,7 +105,7 @@ function validateEmail(email){
     const ok = regExp.test(email);
     if (!ok){
         $("#wrongEmail").html("Please add a valid email");
-    } else if (email.length === 0) {
+    } else if (email === "") {
         $("#wrongEmail").html("Email address is required");
     } else {
         $("#wrongEmail").html("");
@@ -119,7 +119,7 @@ function validatePhonenmbr(phonenmbr){
         $("#wrongPhonenmbr").html("Please add a valid, norwegian phonenumber");
     } else if (isNaN(phonenmbr)){
         $("#wrongPhonenmbr").html("Please only add numbers");
-    } else if (phonenmbr.length === 0){
+    } else if (phonenmbr === ""){
         $("#wrongPhonenmbr").html("Phonenumber is required");
     } else {
         $("#wrongPhonenmbr").html("");

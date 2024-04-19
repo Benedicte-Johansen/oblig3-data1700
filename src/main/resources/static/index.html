@@ -10,16 +10,17 @@
 <body>
 <h1>Order Movie Tickets here</h1>
 <div class="container">
-    <form id="ticketOrdering" action="/" onsubmit=validateInputs()>
+    <form id="ticketOrdering">
         <div>
             <label for="chooseMovie">Choose movie: </label>
             <select id="chooseMovie" name="chooseMovie" required>
                 <option value="">Choose a movie</option>
-                <option value="movie1">Movie 1</option>
-                <option value="movie2">Movie 2</option>
-                <option value="movie3">Movie 3</option>
-                <option value="movie4">Movie 4</option>
+                <option value="dune2">Dune 2</option>
+                <option value="kungFuPanda4">Kung Fu Panda 4</option>
+                <option value="bukkeneBruse">Bukkene Bruse på Badeland</option>
+                <option value="ibelin">Ibelin</option>
             </select>
+            <span id="wrongMovie"></span>
         </div>
         <br>
         <div>
