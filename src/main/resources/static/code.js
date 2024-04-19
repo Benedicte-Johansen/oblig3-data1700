@@ -5,7 +5,7 @@ const email = $("email").val();
 const phonenmbr = $("phonenmbr").val();
 const movie = $("chooseMovie").val();
 
-const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const emailRegex = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/;
 const phoneRegex = /^(0047|\+47|47)?[2-9]\d{7}$/;
 
 
@@ -15,13 +15,13 @@ function addTicketsToArray(){
         "<th>Telefonnummer</th><th>Epost</th>" +
         "<th>Antall Billetter</th><th>Til Film</th></tr>";
 
-    if (nmbrTickets.length === 0 || firstname.length === 0 || surname.length===0 || email.length === 0
+    /*if (nmbrTickets.length === 0 || firstname.length === 0 || surname.length===0 || email.length === 0
         || phonenmbr.length === 0 || movie.length === 0){
         document.getElementById("ticketArray").innerHTML += "";
     } else if ((!emailRegex.test(email)) || (!phoneRegex.test(phonenmbr))){
-        document.getElementById("ticketArray").innerHTML += "";
+        document.getElementById("ticketArray").innerHTML += ""
     }
-    else {
+    else {*/
         const ticketPurchase = {
             firstnameValue: firstname,
             surnameValue:surname,
@@ -41,7 +41,7 @@ function addTicketsToArray(){
             }
             document.getElementById("ticketArray").innerHTML = ut;
         });
-    }
+    //}
 }
 
 function deleteTickets() {

@@ -24,29 +24,29 @@
         <br>
         <div>
             <label for="nmbrTickets">Number of Tickets: </label>
-            <input type="number" name="nmbrTickets" id="nmbrTickets" min="1" max="10">
-            <div class="error"></div>
+            <input type="number" name="nmbrTickets" id="nmbrTickets" onchange="validateNmbrTickets(this.value)" min="1" max="10">
+            <span id="wrongNmbrTickets"></span>
         </div>
         <br>
         <div>
             <label for="firstName">First name</label>
-            <input type="text" name="firstName" id="firstName" placeholder="First name">
-            <div class="error"></div>
+            <input type="text" name="firstName" id="firstName" onchange="validateFirstName(this.value)" placeholder="First name">
+            <span id="wrongFirstName"></span>
         </div>
         <div>
             <label for="surname">Surname</label>
-            <input type="text" name="surname" id="surname" placeholder="Surname">
-            <div class="error"></div>
+            <input type="text" name="surname" id="surname" onchange="validateSurname(this.value)" placeholder="Surname">
+            <span id="wrongSurname"></span>
         </div>
         <div>
             <label for="email">E-mail</label>
-            <input type="text" name="email" id="email" placeholder="abc@gmail.com">
-            <div class="error"></div>
+            <input type="text" name="email" id="email" onchange="validateEmail(this.value)" placeholder="abc@gmail.com">
+            <span id="wrongEmail"></span>
         </div>
         <div>
             <label for="phonenmbr">Phone number</label>
-            <input type="number" name="phonenmbr" id="phonenmbr" placeholder="12345678">
-            <div class="error"></div>
+            <input type="number" name="phonenmbr" id="phonenmbr" onchange="validatePhonenmbr(this.value)" placeholder="12345678">
+            <span id="wrongPhonenmbr"></span>
         </div>
         <button id="btn" type="submit" onclick=addTicketsToArray()>Order tickets</button>
     </form>
