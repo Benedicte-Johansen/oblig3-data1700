@@ -1,14 +1,16 @@
 package com.example.oblig3data1700;
 
 public class Ticket {
+    private String movie;
     private String firstname;
     private String surname;
     private String email;
     private int nmbrTickets;
     private int phonenmbr;
 
-    public Ticket (String firstname, String surname, String email,
+    public Ticket (String movie, String firstname, String surname, String email,
                    int nmbrTickets, int phonenmbr){
+        this.movie = movie;
         this.firstname = firstname;
         this.surname = surname;
         this.email = email;
@@ -17,6 +19,12 @@ public class Ticket {
     }
 
     public Ticket (){}
+
+    public String getMovie () {return movie;}
+
+    public void setMovie(String movie) {
+        this.movie = movie;
+    }
 
     public String getFirstname (){
         return firstname;
