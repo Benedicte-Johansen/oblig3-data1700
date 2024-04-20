@@ -22,19 +22,19 @@ function addTicketsToArray(){
         phonenmbr: $("#phonenmbr").val(),
         email: $("#email").val()
     };
+    console.log("addTicketsToArray")
+    console.log(ticketPurchase);
+    console.log(ticketArray);
     ticketArray.push(ticketPurchase);
-    $.post("http://localhost:8080/addTicket", ticketPurchase, function (){
-        console.log("addTicketsToArray")
-        console.log(ticketPurchase);
-        console.log(ticketArray);
+    $.post("/addTicket", ticketPurchase, function (){
         getAll();
     });
-
     $("#nmbrTickets").val("");
     $("#nmbrTickets").val("");
     $("#nmbrTickets").val("");
     $("#nmbrTickets").val("");
     $("#nmbrTickets").val("");
+    $("#chooseMovie").val("Choose Movie");
 }
 
 function getAll(){

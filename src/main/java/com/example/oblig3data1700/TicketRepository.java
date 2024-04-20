@@ -17,13 +17,13 @@ public class TicketRepository {
     @Autowired
     private JdbcTemplate db;
 
-    class TicketRowMapper implements RowMapper <Ticket> {
+    static class TicketRowMapper implements RowMapper <Ticket> {
         @Override
         public Ticket mapRow(ResultSet rs, int rowNum) throws SQLException {
             Ticket ticket = new Ticket();
             ticket.setMovie(rs.getString("movie"));
             ticket.setNmbrTickets(rs.getInt("nmbrTickets"));
-            ticket.setFirstname(rs.getString("fristname"));
+            ticket.setFirstname(rs.getString("firstname"));
             ticket.setSurname(rs.getString("surname"));
             ticket.setEmail(rs.getString("email"));
             ticket.setPhonenmbr(rs.getInt("phonenmbr"));

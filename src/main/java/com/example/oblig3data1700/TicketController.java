@@ -13,12 +13,16 @@ import java.util.List;
 public class TicketController {
 
     @Autowired
-    TicketRepository rep;
+    TicketRepository ticketRepository;
+
+    public TicketController(TicketRepository ticketRepository){
+        this.ticketRepository = ticketRepository;
+    }
 
     @GetMapping("/getTickets")
     public List<Ticket> getAll(){
         //return ticketList;
-        return rep.getAll();
+        return ticketRepository.getAll();
     }
 
 
@@ -29,12 +33,13 @@ public class TicketController {
 
     @PostMapping("/addTicket")
     public void saveTicket(Ticket inTicket){
-        rep.saveTicket(inTicket);
+        System.out.println(inTicket);
+        ticketRepository.saveTicket(inTicket);
     }
 
     @DeleteMapping("/deleteTickets")
     public void deleteAllTickets(){
-        rep.deleteTickets();
+        ticketRepository.deleteTickets();
     }
 
     private boolean validateTicket(Ticket ticket){

@@ -7,9 +7,10 @@ public class Ticket {
     private String surname;
     private String email;
     private int phonenmbr;
+    private int id;
 
-    public Ticket (String movie, String firstname, String surname, String email,
-                   int nmbrTickets, int phonenmbr){
+    public Ticket (String movie, int nmbrTickets, String firstname, String surname, String email,
+                    int phonenmbr, int id){
         this.movie = movie;
         this.nmbrTickets = nmbrTickets;
         this.firstname = firstname;
@@ -63,5 +64,13 @@ public class Ticket {
     }
     public void setPhonenmbr(int phonenmbr){
         this.phonenmbr = phonenmbr;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
