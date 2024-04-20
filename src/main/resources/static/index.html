@@ -5,52 +5,52 @@
     <title>oblig3-data1700</title>
     <script defer src="code.js"></script>
     <script defer src="inputValidation.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <h1>Order Movie Tickets here</h1>
 <div class="container">
-    <form id="ticketOrdering">
+    <form class="form">
         <div>
             <label for="chooseMovie">Choose movie: </label>
             <select id="chooseMovie" name="chooseMovie" required>
                 <option value="">Choose a movie</option>
-                <option value="dune2">Dune 2</option>
-                <option value="kungFuPanda4">Kung Fu Panda 4</option>
-                <option value="bukkeneBruse">Bukkene Bruse på Badeland</option>
-                <option value="ibelin">Ibelin</option>
+                <option value="Dune 2">Dune 2</option>
+                <option value="Kung Fu Panda 4">Kung Fu Panda 4</option>
+                <option value="Bukkene Bruse på Badeland">Bukkene Bruse på Badeland</option>
+                <option value="Ibelin">Ibelin</option>
             </select>
             <span id="wrongMovie"></span>
         </div>
         <br>
         <div>
             <label for="nmbrTickets">Number of Tickets: </label>
-            <input type="number" name="nmbrTickets" id="nmbrTickets" onchange="validateNmbrTickets(this.value)" min="1" max="10">
+            <input type="number" name="nmbrTickets" id="nmbrTickets" min="1" max="10">
             <span id="wrongNmbrTickets"></span>
         </div>
         <br>
         <div>
             <label for="firstName">First name</label>
-            <input type="text" name="firstName" id="firstName" onchange="validateFirstName(this.value)" placeholder="First name">
+            <input type="text" name="firstName" id="firstName"  placeholder="First name">
             <span id="wrongFirstName"></span>
         </div>
         <div>
             <label for="surname">Surname</label>
-            <input type="text" name="surname" id="surname" onchange="validateSurname(this.value)" placeholder="Surname">
+            <input type="text" name="surname" id="surname"  placeholder="Surname">
             <span id="wrongSurname"></span>
         </div>
         <div>
             <label for="email">E-mail</label>
-            <input type="text" name="email" id="email" onchange="validateEmail(this.value)" placeholder="abc@gmail.com">
+            <input type="text" name="email" id="email"  placeholder="abc@gmail.com">
             <span id="wrongEmail"></span>
         </div>
         <div>
             <label for="phonenmbr">Phone number</label>
-            <input type="number" name="phonenmbr" id="phonenmbr" onchange="validatePhonenmbr(this.value)" placeholder="12345678">
+            <input type="number" name="phonenmbr" id="phonenmbr"  placeholder="12345678">
             <span id="wrongPhonenmbr"></span>
         </div>
     </form>
-        <button onclick="addTicketsToArray();">Order tickets</button>
+    <button onclick="addTicketsToArray();">Order tickets</button>
 </div>
 
 <div>

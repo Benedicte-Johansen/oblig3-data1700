@@ -1,86 +1,59 @@
-const nmbrTickets = $("nmbrTickets").val();
-const firstname = $("firstName").val();
-const surname = $("surname").val();
-const email = $("email").val();
-const phonenmbr = $("phonenmbr").val();
-const movie = $("chooseMovie").val();
+/*let nmbrTickets = ($("#nmbrTickets").val());
+let firstname = ($("#firstName").val());
+let surname = $("#surname").val();
+let email = $("#email").val();
+let phonenmbr = $("#phonenmbr").val();
+let movie = $("#chooseMovie").val();*/
 
-//let ticketArray = [];
+let ticketArray = [];
 
 function clicktest(){
-    console.log("TRIGGER");
-    $.post("http://localhost:8080/debug");
+    console.log(document.getElementById("chooseMovie").value);
+    console.log($("#firstName").val);
+    console.log(document.getElementById("firstName").value);
 }
 
 function addTicketsToArray(){
-    console.log("Trigger addTicketToArray")
-        const ticketPurchase = {
-            firstnameValue: firstname,
-            surnameValue:surname,
-            phonenmbrValue: phonenmbr,
-            emailValue: email,
-            nmbrTicketsValue: nmbrTickets,
-            movie:movie
-        };
-    console.log("Running addTicketToArray");
+    const ticketPurchase = {
+        movie: $("#chooseMovie").val(),
+        nmbrTickets: $("#nmbrTickets").val(),
+        firstname: $("#firstName").val(),
+        surname: $("#surname").val(),
+        phonenmbr: $("#phonenmbr").val(),
+        email: $("#email").val()
+    };
+    ticketArray.push(ticketPurchase);
+    $.post("http://localhost:8080/addTicket", ticketPurchase, function (){
+        console.log("addTicketsToArray")
+        console.log(ticketPurchase);
+        console.log(ticketArray);
+        getAll();
+    });
 
-        $.post("http://localhost:8080/addTicket", ticketPurchase, function (data){
-            console.log("data: " + data);
-          getAll();
-        });
-
-        /*nmbrTickets("");
-        firstname("");
-        surname("");
-        email("");
-        phonenmbr("");
-        movie("");/*
-            /*console.log(data);
-            let ut = "<table><tr><th>Name:</th>" +
-                "<th>Phonenumber:</th><th>Email:</th>" +
-                "<th>Number of tickets:</th><th>For movie:</th></tr>";
-
-            data.forEach(function (ticket){
-                ut += "<tr><td>" + ticket.firstnameValue + " " + ticket.surnameValue + "</td><td>" +
-                    ticket.phonenmbrValue + "</td><td>" + ticket.emailValue + "</td><td>" + ticket.nmbrTicketsValue
-                    + "</td><td>" + ticket.movie + "</td></tr>";
-                ut+= "</table>"
-            })
-            $("#ticketArray").innerHTML = ut;
-            console.log(ut)
-        })*/
-
-        /*$.get("http://localhost:8080/getTickets", function (ticket){
-            console.log(ticket);
-            let ut = "<table><tr><th>Name:</th>" +
-                "<th>Phonenumber:</th><th>Email:</th>" +
-                "<th>Number of tickets:</th><th>For movie:</th></tr>";
-
-            ticket.forEach(function (ticket){
-                ut += "<tr><td>" + ticket.firstnameValue + " " + ticket.surnameValue + "</td><td>" +
-                    ticket.phonenmbrValue + "</td><td>" + ticket.emailValue + "</td><td>" + ticket.nmbrTicketsValue
-                    + "</td><td>" + ticket.movie + "</td></tr>";
-                ut+= "</table>"
-            })
-            $("#ticketArray").innerHTML = ut;
-            console.log(ut)
-        })*/
-    //}
+    $("#nmbrTickets").val("");
+    $("#nmbrTickets").val("");
+    $("#nmbrTickets").val("");
+    $("#nmbrTickets").val("");
+    $("#nmbrTickets").val("");
 }
 
 function getAll(){
+    console.log("Get all")
     $.get("http://localhost:8080/getTickets", function (tickets){
         formatData(tickets);
+        console.log(ticketArray);
+        console.log(tickets);
     })
 }
 
 function formatData(tickets){
+    console.log(tickets);
     let ut = "<table><tr><th>Name:</th>" +
         "<th>Phonenumber:</th><th>Email:</th>" +
         "<th>Number of tickets:</th><th>For movie:</th></tr>";
-    for (const ticket of tickets){
-        ut += "<tr><td>" + ticket.firstnameValue + " " + ticket.surnameValue + "</td><td>" +
-            ticket.phonenmbrValue + "</td><td>" + ticket.emailValue + "</td><td>" + ticket.nmbrTicketsValue
+    for(const ticket of tickets) {
+        ut += "<tr><td>" + ticket.firstname + " " + ticket.surname + "</td><td>" +
+            ticket.phonenmbr + "</td><td>" + ticket.email + "</td><td>" + ticket.nmbrTickets
             + "</td><td>" + ticket.movie + "</td></tr>";
     }
     ut += "</table>";

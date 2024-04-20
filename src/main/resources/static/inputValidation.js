@@ -1,4 +1,4 @@
-function validateNmbrTickets (nmbrTickets) {
+/*function validateNmbrTickets (nmbrTickets) {
     if (nmbrTickets === "") {
         $("#wrongNmbrTickets").html("Please enter the number of tickets you would like to order.");
         return false;
@@ -62,4 +62,4 @@ function validatePhonenmbr(phonenmbr){
     } else {
         $("#wrongPhonenmbr").html("");
     }
-}
+}*/

@@ -1,34 +1,24 @@
 package com.example.oblig3data1700;
 
 public class Ticket {
-    private Long id;
     private String movie;
+    private int nmbrTickets;
     private String firstname;
     private String surname;
     private String email;
-    private int nmbrTickets;
     private int phonenmbr;
 
-    public Ticket (Long id, String movie, String firstname, String surname, String email,
+    public Ticket (String movie, String firstname, String surname, String email,
                    int nmbrTickets, int phonenmbr){
-        this.id = id;
         this.movie = movie;
+        this.nmbrTickets = nmbrTickets;
         this.firstname = firstname;
         this.surname = surname;
         this.email = email;
-        this.nmbrTickets = nmbrTickets;
         this.phonenmbr = phonenmbr;
     }
 
     public Ticket (){}
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getMovie () {return movie;}
 
