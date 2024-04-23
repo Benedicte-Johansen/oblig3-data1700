@@ -1,18 +1,3 @@
-/*let nmbrTickets = ($("#nmbrTickets").val());
-let firstname = ($("#firstName").val());
-let surname = $("#surname").val();
-let email = $("#email").val();
-let phonenmbr = $("#phonenmbr").val();
-let movie = $("#chooseMovie").val();*/
-
-let ticketArray = [];
-
-function clicktest(){
-    console.log(document.getElementById("chooseMovie").value);
-    console.log($("#firstName").val);
-    console.log(document.getElementById("firstName").value);
-}
-
 function addTicketsToArray(){
     const ticketPurchase = {
         movie: $("#chooseMovie").val(),
@@ -22,32 +7,21 @@ function addTicketsToArray(){
         phonenmbr: $("#phonenmbr").val(),
         email: $("#email").val()
     };
-    console.log("addTicketsToArray")
-    console.log(ticketPurchase);
-    console.log(ticketArray);
-    ticketArray.push(ticketPurchase);
+
     $.post("/addTicket", ticketPurchase, function (){
         getAll();
     });
-    $("#nmbrTickets").val("");
-    $("#nmbrTickets").val("");
-    $("#nmbrTickets").val("");
-    $("#nmbrTickets").val("");
-    $("#nmbrTickets").val("");
-    $("#chooseMovie").val("Choose Movie");
+
+    $('form :input').val('');
 }
 
 function getAll(){
-    console.log("Get all")
     $.get("http://localhost:8080/getTickets", function (tickets){
         formatData(tickets);
-        console.log(ticketArray);
-        console.log(tickets);
     })
 }
 
 function formatData(tickets){
-    console.log(tickets);
     let ut = "<table><tr><th>Name:</th>" +
         "<th>Phonenumber:</th><th>Email:</th>" +
         "<th>Number of tickets:</th><th>For movie:</th></tr>";
@@ -61,7 +35,7 @@ function formatData(tickets){
 }
 
 function deleteTickets() {
-    $.delete("http://localhost:8080/deleteTickets", function (){
+    $.get("http://localhost:8080/deleteTickets", function (){
         getAll();
     })
 }

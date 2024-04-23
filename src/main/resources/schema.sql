@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS Ticket
+CREATE TABLE Ticket
 (
     movie       VARCHAR(255),
     nmbrTickets INTEGER,
@@ -6,5 +6,6 @@ CREATE TABLE IF NOT EXISTS Ticket
     surname     VARCHAR(255),
     email       VARCHAR(255),
     phonenmbr   INTEGER,
-    id int PRIMARY KEY AUTO_INCREMENT
+    id INTEGER AUTO_INCREMENT NOT NULL,
+    PRIMARY KEY (id)
 );

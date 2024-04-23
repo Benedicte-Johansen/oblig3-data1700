@@ -10,7 +10,7 @@
 <body>
 <h1>Order Movie Tickets here</h1>
 <div class="container">
-    <form class="form">
+    <form class="form" id="form">
         <div>
             <label for="chooseMovie">Choose movie: </label>
             <select id="chooseMovie" name="chooseMovie" required>
@@ -25,28 +25,28 @@
         <br>
         <div>
             <label for="nmbrTickets">Number of Tickets: </label>
-            <input type="number" name="nmbrTickets" id="nmbrTickets" min="1" max="10">
+            <input type="number" name="nmbrTickets" onchange="return nmbrTicketsValidation" id="nmbrTickets" min="1" max="10" required>
             <span id="wrongNmbrTickets"></span>
         </div>
         <br>
         <div>
             <label for="firstName">First name</label>
-            <input type="text" name="firstName" id="firstName"  placeholder="First name">
+            <input type="text" name="firstName" id="firstName" onchange="return firstNameValidation()" placeholder="First name">
             <span id="wrongFirstName"></span>
         </div>
         <div>
             <label for="surname">Surname</label>
-            <input type="text" name="surname" id="surname"  placeholder="Surname">
+            <input type="text" name="surname" id="surname" onchange="return surnameValidation()" placeholder="Surname">
             <span id="wrongSurname"></span>
         </div>
         <div>
             <label for="email">E-mail</label>
-            <input type="text" name="email" id="email"  placeholder="abc@gmail.com">
+            <input type="text" name="email" id="email" onchange="return emailValidation()" placeholder="abc@gmail.com" required>
             <span id="wrongEmail"></span>
         </div>
         <div>
             <label for="phonenmbr">Phone number</label>
-            <input type="number" name="phonenmbr" id="phonenmbr"  placeholder="12345678">
+            <input type="number" name="phonenmbr" id="phonenmbr" onchange="return phonenmbrValidation()" placeholder="12345678">
             <span id="wrongPhonenmbr"></span>
         </div>
     </form>
@@ -54,7 +54,7 @@
 </div>
 
 <div>
-    <button id="debug" value="debug" onclick="clicktest();" >DEBUG</button>
+    <!--<button id="debug" value="debug" onclick="clicktest();" >DEBUG</button>-->
 </div>
 
 <p>If you are going to order more then 10 tickets, please contact the cinema</p>

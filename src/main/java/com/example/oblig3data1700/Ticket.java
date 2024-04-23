@@ -17,6 +17,7 @@ public class Ticket {
         this.surname = surname;
         this.email = email;
         this.phonenmbr = phonenmbr;
+        this.id = id;
     }
 
     public Ticket (){}
