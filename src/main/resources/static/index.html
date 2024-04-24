@@ -6,60 +6,60 @@
     <script defer src="code.js"></script>
     <script defer src="inputValidation.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Order Movie Tickets here</h1>
 <div class="container">
-    <form class="form" id="form">
-        <div>
-            <label for="chooseMovie">Choose movie: </label>
-            <select id="chooseMovie" name="chooseMovie" required>
-                <option value="">Choose a movie</option>
-                <option value="Dune 2">Dune 2</option>
-                <option value="Kung Fu Panda 4">Kung Fu Panda 4</option>
-                <option value="Bukkene Bruse på Badeland">Bukkene Bruse på Badeland</option>
-                <option value="Ibelin">Ibelin</option>
-            </select>
-            <span id="wrongMovie"></span>
-        </div>
-        <br>
-        <div>
-            <label for="nmbrTickets">Number of Tickets: </label>
-            <input type="number" name="nmbrTickets" onchange="return nmbrTicketsValidation" id="nmbrTickets" min="1" max="10" required>
-            <span id="wrongNmbrTickets"></span>
-        </div>
-        <br>
-        <div>
-            <label for="firstName">First name</label>
-            <input type="text" name="firstName" id="firstName" onchange="return firstNameValidation()" placeholder="First name">
-            <span id="wrongFirstName"></span>
-        </div>
-        <div>
-            <label for="surname">Surname</label>
-            <input type="text" name="surname" id="surname" onchange="return surnameValidation()" placeholder="Surname">
-            <span id="wrongSurname"></span>
-        </div>
-        <div>
-            <label for="email">E-mail</label>
-            <input type="text" name="email" id="email" onchange="return emailValidation()" placeholder="abc@gmail.com" required>
-            <span id="wrongEmail"></span>
-        </div>
-        <div>
-            <label for="phonenmbr">Phone number</label>
-            <input type="number" name="phonenmbr" id="phonenmbr" onchange="return phonenmbrValidation()" placeholder="12345678">
-            <span id="wrongPhonenmbr"></span>
-        </div>
-    </form>
-    <button onclick="addTicketsToArray();">Order tickets</button>
-</div>
+    <div class="row">
+        <div class="col-md-4">
+            <h1>Order Movie Tickets here</h1>
+            <form class="form" id="form">
+                <div class="form-group">
+                    <label for="chooseMovie">Choose movie: </label>
+                    <select id="chooseMovie" name="chooseMovie" required>
+                        <option value="">Choose a movie</option>
+                        <option value="Dune 2">Dune 2</option>
+                        <option value="Kung Fu Panda 4">Kung Fu Panda 4</option>
+                        <option value="Bukkene Bruse på Badeland">Bukkene Bruse på Badeland</option>
+                        <option value="Ibelin">Ibelin</option>
+                    </select>
+                    <span id="wrongMovie"></span>
+                </div>
+                    <div class="form-group">
+                        <label for="nmbrTickets">Number of Tickets: </label>
+                        <input type="number" name="nmbrTickets" onchange="return nmbrTicketsValidation" id="nmbrTickets" min="1" max="10" required>
+                        <span id="wrongNmbrTickets"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">First name</label>
+                        <input type="text" name="firstName" id="firstName" onchange="return firstNameValidation()" placeholder="First name">
+                        <span id="wrongFirstName"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Surname</label>
+                        <input type="text" name="surname" id="surname" onchange="return surnameValidation()" placeholder="Surname">
+                        <span id="wrongSurname"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="text" name="email" id="email" onchange="return emailValidation()" placeholder="abc@gmail.com" required>
+                        <span id="wrongEmail"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phonenmbr">Phone number</label>
+                        <input type="number" name="phonenmbr" id="phonenmbr" onchange="return phonenmbrValidation()" placeholder="12345678">
+                        <span id="wrongPhonenmbr"></span>
+                    </div>
+                </form>
+                <button class="btn btn-primary" onclick="addTicketsToArray();">Order tickets</button>
+            <p>If you are going to order more then 10 tickets, please contact the cinema</p>
+            </div>
 
-<p>If you are going to order more then 10 tickets, please contact the cinema</p>
-<h2>Tickets ordered</h2>
-
-<div id="ticketArray">
-
-</div>
-
-<input type="button" id="deleteTickets" value="Delete Ordered Tickets" onclick="deleteTickets();">
+            <h2>Tickets ordered</h2>
+            <div id="ticketArray" class="table-responsive"></div>
+        <button class="btn btn-danger" onclick="deleteTickets()">Delete all tickets</button>
+                <!--<input type="button" id="deleteTickets" value="Delete Ordered Tickets" onclick="deleteTickets();">-->
+        </div>
+    </div>
 </body>
 </html>
